@@ -294,7 +294,7 @@ At this stage:
 
 Make sure any revised quotation reflects the agreed scope and pricing.
 
-![Waiting for client approval](screenshots/quote.JPG)
+![Waiting for client approval](screenshots/approvalquote.JPG)
 
 *Figure 24: Waiting for client approval, with Edit Quote and Resend Quote buttons.*
 
