@@ -1,6 +1,8 @@
 ﻿---
-title: KaaKazini User Guide
-description: Step-by-step guidance for KaaKazini clients, craftsmen, and service providers.
+---
+layout: default
+title: Home
+---
 ---
 # KaaKazini User Guide
 
