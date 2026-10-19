@@ -1,8 +1,9 @@
-﻿
-/* KaaKazini User Guide — Custom CSS
-   No Cayman theme dependency.
-*/
+﻿---
+---
+/* Save as: assets/css/style.scss  (the two "---" lines above are REQUIRED:
+   without them Jekyll will not process {{ site.theme }} or the @import) */
 
+/* Plain-CSS @import must come first, before any rules, or browsers ignore it */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
 
 :root {
@@ -10,11 +11,7 @@
   --kz-black: #000000;
   --kz-white: #ffffff;
   --kz-border: #e8e8e8;
-  --kz-font: 'Raleway', Arial, sans-serif;
-}
-
-* {
-  box-sizing: border-box;
+  --kz-font: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 html {
@@ -37,17 +34,17 @@ body {
   background: var(--kz-yellow);
 }
 
-/* Header */
+/* Hero header */
 .page-header {
   padding: 76px 24px 68px;
-  background: var(--kz-black);
+  background: var(--kz-black);          /* shorthand also clears the theme's gradient */
   border-bottom: 8px solid var(--kz-yellow);
-  text-align: center;
 }
 
 .project-name {
   margin: 0 0 18px;
   color: var(--kz-yellow);
+  font-family: var(--kz-font);
   font-size: clamp(2.2rem, 6vw, 4rem);
   font-weight: 800;
   letter-spacing: -1.5px;
@@ -58,6 +55,7 @@ body {
   max-width: 720px;
   margin: 0 auto;
   color: var(--kz-white);
+  font-family: var(--kz-font);
   font-size: clamp(1rem, 2.2vw, 1.2rem);
   font-weight: 400;
   line-height: 1.8;
@@ -65,7 +63,6 @@ body {
 
 /* Header buttons */
 .btn {
-  display: inline-block;
   margin: 18px 6px 0;
   padding: 12px 24px;
   border: 2px solid var(--kz-yellow);
@@ -75,8 +72,6 @@ body {
   font-family: var(--kz-font);
   font-size: 0.9rem;
   font-weight: 800;
-  text-decoration: none;
-  cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
 
@@ -85,14 +80,16 @@ body {
   border-color: var(--kz-white);
   background: var(--kz-white);
   color: var(--kz-black);
+  text-decoration: none;
 }
 
-/* Main content */
+/* Main reading area.
+   Cayman places the footer INSIDE .main-content, so bottom padding is 0
+   here and the footer supplies its own spacing (see footer section). */
 .main-content {
-  width: 100%;
-  max-width: 1064px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 48px 32px 40px;
+  padding: 48px 32px 0;
   font-size: 1rem;
 }
 
@@ -103,9 +100,7 @@ body {
 .main-content h1,
 .main-content h2,
 .main-content h3,
-.main-content h4,
-.main-content h5,
-.main-content h6 {
+.main-content h4 {
   color: var(--kz-black);
   font-family: var(--kz-font);
   font-weight: 800;
@@ -143,7 +138,7 @@ body {
   font-weight: 800;
 }
 
-/* Links */
+/* Links: black underline, yellow highlight on hover */
 .main-content a {
   color: var(--kz-black);
   font-weight: 700;
@@ -182,7 +177,7 @@ body {
   background: var(--kz-yellow);
 }
 
-/* Images and screenshots */
+/* Screenshots */
 .main-content img {
   display: block;
   max-width: 100%;
@@ -224,7 +219,7 @@ body {
   border-radius: 4px;
   background: #f2f2f2;
   color: var(--kz-black);
-  font-family: Consolas, monospace;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
   font-size: 0.9em;
   overflow-wrap: anywhere;
 }
@@ -244,7 +239,9 @@ body {
   overflow-wrap: normal;
 }
 
-/* Tables */
+/* Tables
+   Selectors include "table" because the theme uses ".main-content table th/td";
+   shorter selectors lose on specificity and your styles were silently ignored. */
 .main-content table {
   display: block;
   width: 100%;
@@ -270,7 +267,7 @@ body {
   background: #fafafa;
 }
 
-/* Accessible keyboard focus */
+/* Keyboard focus: black ring + yellow halo, visible on white and black */
 a:focus-visible,
 button:focus-visible,
 .btn:focus-visible {
@@ -279,7 +276,10 @@ button:focus-visible,
   box-shadow: 0 0 0 7px var(--kz-yellow);
 }
 
-/* Footer */
+/* Footer
+   It sits inside .main-content, so it is made full-width with the
+   box-shadow + clip-path trick, and the theme's gray credits text,
+   top margin and inherited .main-content link styles are overridden. */
 .site-footer {
   margin: 80px 0 0;
   padding: 30px 24px;
@@ -288,6 +288,8 @@ button:focus-visible,
   color: var(--kz-white);
   font-family: var(--kz-font);
   text-align: center;
+  box-shadow: 0 0 0 100vmax var(--kz-black);
+  clip-path: inset(0 -100vmax);
 }
 
 .site-footer .site-footer-owner,
@@ -300,6 +302,7 @@ button:focus-visible,
 .main-content .site-footer a,
 .site-footer a {
   color: var(--kz-yellow);
+  font-family: var(--kz-font);
   font-weight: 700;
   text-decoration-color: var(--kz-yellow);
 }
@@ -321,7 +324,7 @@ button:focus-visible,
   }
 
   .main-content {
-    padding: 32px 20px 40px;
+    padding: 32px 20px 0;
     font-size: 0.97rem;
   }
 
@@ -334,11 +337,15 @@ button:focus-visible,
     padding: 10px;
   }
 
+  /* Theme forces width:100% on mobile; with side margins that overflowed */
   .btn {
     display: block;
-    width: fit-content;
-    max-width: 100%;
-    margin: 14px auto 0;
+    width: auto;
+    margin: 14px 0 0;
+  }
+
+  .btn + .btn {
+    margin-top: 14px;
   }
 
   .site-footer {
@@ -355,7 +362,5 @@ button:focus-visible,
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
   }
 }
