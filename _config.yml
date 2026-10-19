@@ -1,2 +1,10 @@
-﻿title: KaaKazini User Guide
+﻿
+title: KaaKazini User Guide
 description: User documentation for KaaKazini.
+
+lang: en
+
+url: "https://jay4t.github.io"
+baseurl: "/kaakazini-user-guide"
+
+markdown: kramdown
