@@ -1,7 +1,10 @@
 ﻿---
+layout: default
 title: KaaKazini User Guide
 description: Step-by-step guidance for KaaKazini clients, craftsmen, and service providers.
 ---
+
+
 # KaaKazini User Guide
 
 ##  For Craftsmen and Service Providers

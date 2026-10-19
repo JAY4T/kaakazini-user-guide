@@ -1,10 +1,74 @@
-﻿/* KaaKazini navigation */
+﻿
+/* =========================================================
+   KaaKazini User Guide — Complete UI Stylesheet
+   Brand: Yellow #fff000 | Black #000000 | White #ffffff
+   Typography: Raleway
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --kz-yellow: #fff000;
+  --kz-black: #000000;
+  --kz-white: #ffffff;
+  --kz-text: #252525;
+  --kz-muted: #626262;
+  --kz-border: #e8e8e8;
+  --kz-soft: #f7f7f5;
+  --kz-font: 'Raleway', Arial, sans-serif;
+  --kz-content-width: 1080px;
+  --kz-radius: 12px;
+  --kz-shadow: 0 5px 22px rgba(0, 0, 0, 0.055);
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--kz-white);
+  color: var(--kz-text);
+  font-family: var(--kz-font);
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+
+/* Accessible keyboard navigation */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 1000;
+  padding: 10px 16px;
+  background: var(--kz-yellow);
+  color: var(--kz-black);
+  font-weight: 800;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Navigation */
 .site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  padding: 12px 5%;
+  gap: 24px;
+  min-height: 76px;
+  padding: 12px max(5%, calc((100% - var(--kz-content-width)) / 2));
   background: var(--kz-white);
   border-bottom: 2px solid var(--kz-yellow);
 }
@@ -27,35 +91,311 @@
 }
 
 .nav-guide-link {
+  padding: 9px 16px;
+  border: 1px solid var(--kz-black);
+  border-radius: 7px;
   color: var(--kz-black);
+  font-size: 0.92rem;
   font-weight: 700;
   text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.nav-brand:hover,
-.nav-guide-link:hover {
-  color: var(--kz-black);
+.nav-guide-link:hover,
+.nav-guide-link:focus-visible {
   background: var(--kz-yellow);
+  color: var(--kz-black);
 }
 
-/* Large logo in the page header */
+.nav-brand:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--kz-black);
+  outline-offset: 4px;
+}
+
+/* Hero / page header */
+.page-header {
+  position: relative;
+  padding: 64px 24px 70px;
+  background: var(--kz-yellow);
+  color: var(--kz-black);
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
 .header-logo-link {
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 }
 
 .header-logo {
   display: block;
-  width: 110px;
-  height: 110px;
+  width: 88px;
+  height: 88px;
+  margin: 0 auto;
   object-fit: contain;
+  border-radius: 12px;
+}
+
+.project-name {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--kz-black);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
+.project-tagline {
+  max-width: 650px;
+  margin: 18px auto 0;
+  color: #292700;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+/* Main documentation container */
+.main-content {
+  width: min(var(--kz-content-width), calc(100% - 48px));
+  margin: 0 auto;
+  padding: 48px 0 64px;
+}
+
+/* Headings */
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4 {
+  color: var(--kz-black);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  scroll-margin-top: 100px;
+}
+
+.main-content h1 {
+  margin: 0 0 24px;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+}
+
+.main-content h2 {
+  margin: 58px 0 22px;
+  padding: 0 0 12px;
+  border-bottom: 3px solid var(--kz-yellow);
+  font-size: clamp(1.55rem, 3vw, 2rem);
+}
+
+.main-content h3 {
+  margin: 36px 0 14px;
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+.main-content h4 {
+  margin: 28px 0 10px;
+  font-size: 1.08rem;
+}
+
+/* Paragraphs and emphasis */
+.main-content p {
+  margin: 0 0 20px;
+}
+
+.main-content strong {
+  color: var(--kz-black);
+  font-weight: 800;
+}
+
+.main-content em {
+  color: var(--kz-muted);
+}
+
+/* Links */
+.main-content a {
+  color: var(--kz-black);
+  font-weight: 700;
+  text-decoration-color: #c6bb00;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+  transition: text-decoration-thickness 0.15s ease;
+}
+
+.main-content a:hover {
+  text-decoration-thickness: 3px;
+}
+
+/* Ordered and unordered lists */
+.main-content ul,
+.main-content ol {
+  margin: 12px 0 26px;
+  padding-left: 28px;
+}
+
+.main-content li {
+  margin: 8px 0;
+  padding-left: 4px;
+}
+
+.main-content li::marker {
+  color: #857d00;
+  font-weight: 800;
+}
+
+.main-content li > ul,
+.main-content li > ol {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+/* Screenshots and other images */
+.main-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 24px auto 12px;
+  border: 1px solid var(--kz-border);
+  border-radius: var(--kz-radius);
+  box-shadow: var(--kz-shadow);
+}
+
+.main-content a:has(img) {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 24px auto 12px;
+}
+
+.main-content a:has(img) img {
   margin: 0 auto;
 }
 
-/* Responsive navigation */
-@media screen and (max-width: 480px) {
+/* Figure captions */
+.main-content p:has(> em) {
+  color: var(--kz-muted);
+  font-size: 0.91rem;
+  line-height: 1.6;
+}
+
+/* Horizontal separators */
+.main-content hr {
+  height: 1px;
+  margin: 42px 0;
+  border: 0;
+  background: var(--kz-border);
+}
+
+/* Blockquotes and important notes */
+.main-content blockquote {
+  margin: 26px 0;
+  padding: 18px 22px;
+  background: var(--kz-soft);
+  border-left: 5px solid var(--kz-yellow);
+  border-radius: 0 8px 8px 0;
+}
+
+.main-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Inline code and code blocks */
+.main-content code {
+  padding: 3px 7px;
+  background: #f0f0ed;
+  border: 1px solid #e5e5e0;
+  border-radius: 5px;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+.main-content pre {
+  max-width: 100%;
+  margin: 24px 0;
+  padding: 20px;
+  overflow-x: auto;
+  background: #171717;
+  color: var(--kz-white);
+  border-radius: var(--kz-radius);
+  line-height: 1.6;
+}
+
+.main-content pre code {
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  border: 0;
+}
+
+/* Tables */
+.main-content table {
+  display: block;
+  width: 100%;
+  margin: 24px 0 32px;
+  overflow-x: auto;
+  border-collapse: collapse;
+  border: 1px solid var(--kz-border);
+  border-radius: 8px;
+}
+
+.main-content th,
+.main-content td {
+  min-width: 120px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--kz-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.main-content th {
+  background: var(--kz-yellow);
+  color: var(--kz-black);
+  font-weight: 800;
+}
+
+.main-content tr:last-child td {
+  border-bottom: 0;
+}
+
+.main-content tbody tr:nth-child(even) {
+  background: #fafaf8;
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 72px;
+  padding: 30px 20px;
+  border-top: 2px solid var(--kz-yellow);
+  color: var(--kz-muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 4px 0;
+}
+
+.site-footer-owner {
+  color: var(--kz-black);
+  font-weight: 800;
+}
+
+/* Text selection */
+::selection {
+  background: var(--kz-yellow);
+  color: var(--kz-black);
+}
+
+/* Responsive layout */
+@media (max-width: 700px) {
+  body {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
   .site-nav {
-    padding: 10px 16px;
+    min-height: 64px;
+    padding: 10px 18px;
     gap: 10px;
   }
 
@@ -70,11 +410,58 @@
   }
 
   .nav-guide-link {
-    font-size: 0.9rem;
+    padding: 8px 11px;
+    font-size: 0.85rem;
+  }
+
+  .page-header {
+    padding: 42px 20px 46px;
   }
 
   .header-logo {
-    width: 84px;
-    height: 84px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .main-content {
+    width: calc(100% - 36px);
+    padding-top: 32px;
+  }
+
+  .main-content h2 {
+    margin-top: 44px;
+  }
+
+  .main-content ul,
+  .main-content ol {
+    padding-left: 23px;
+  }
+
+  .main-content blockquote {
+    padding: 15px 17px;
+  }
+
+  .main-content th,
+  .main-content td {
+    padding: 10px 12px;
+  }
+
+  .site-footer {
+    margin-top: 48px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
