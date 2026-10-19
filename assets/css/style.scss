@@ -1,7 +1,4 @@
-﻿---
----
-
-@import "{{ site.theme }}";
+﻿@import "{{ site.theme }}";
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
 
 :root {
@@ -135,10 +132,11 @@ body {
   font-weight: 800;
 }
 
+/* Links: black underline for visibility, yellow highlight on hover */
 .main-content a {
   color: var(--kz-black);
   font-weight: 700;
-  text-decoration-color: var(--kz-yellow);
+  text-decoration-color: var(--kz-black);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
   overflow-wrap: anywhere;
@@ -193,6 +191,10 @@ body {
   text-decoration: none;
 }
 
+.main-content a:has(img):hover {
+  background: transparent;
+}
+
 .main-content a img {
   margin: 0 auto;
 }
@@ -211,7 +213,7 @@ body {
   border-radius: 4px;
   background: #f2f2f2;
   color: var(--kz-black);
-  font-family: Consolas, monospace;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
   font-size: 0.9em;
   overflow-wrap: anywhere;
 }
@@ -256,11 +258,13 @@ body {
   background: #fafafa;
 }
 
-/* Keyboard accessibility */
+/* Keyboard accessibility: black ring with yellow halo, visible on white and black */
 a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--kz-yellow);
+button:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid var(--kz-black);
   outline-offset: 4px;
+  box-shadow: 0 0 0 7px var(--kz-yellow);
 }
 
 /* Footer */
