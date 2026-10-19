@@ -8,75 +8,46 @@
   <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | default: 'KaaKazini User Guide' | escape }}</title>
 
   <meta name="description" content="{{ page.description | default: site.description | default: 'Documentation and help for KaaKazini users.' | escape }}">
-
   <meta name="theme-color" content="#fff000">
 
-  <!-- KaaKazini favicon for browser tabs -->
-  <link
-    rel="icon"
-    type="image/jpeg"
-    href="{{ '/assets/images/kazika.jpg' | relative_url }}"
-  >
+  <!-- Browser favicon -->
+  <link rel="icon" type="image/jpeg" href="{{ '/assets/images/kazika.jpg' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/images/kazika.jpg' | relative_url }}">
 
-  <!-- KaaKazini icon for Apple devices -->
-  <link
-    rel="apple-touch-icon"
-    href="{{ '/assets/images/kazika.jpg' | relative_url }}"
-  >
-
-  <!-- Google Font: Raleway -->
+  <!-- Raleway font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- KaaKazini custom stylesheet -->
-  <link
-    rel="stylesheet"
-    href="{{ '/assets/css/style.css' | relative_url }}"
-  >
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 
 <body>
 
-  <!-- Main navigation -->
-  <nav class="site-nav" aria-label="Main navigation">
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <a
-      class="nav-brand"
-      href="{{ '/' | relative_url }}"
-      aria-label="KaaKazini User Guide home"
-    >
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="nav-brand" href="{{ '/' | relative_url }}" aria-label="KaaKazini User Guide home">
       <img
         src="{{ '/assets/images/kazika.jpg' | relative_url }}"
-        alt="KaaKazini logo"
+        alt=""
         class="nav-logo"
         width="44"
         height="44"
       >
-
       <span>KaaKazini</span>
     </a>
 
-    <a
-      class="nav-guide-link"
-      href="{{ '/' | relative_url }}"
-    >
+    <a class="nav-guide-link" href="{{ '/' | relative_url }}">
       User Guide
     </a>
-
   </nav>
 
   <!-- Page header -->
   <header class="page-header">
-
-    <a
-      class="header-logo-link"
-      href="{{ '/' | relative_url }}"
-      aria-label="KaaKazini home"
-    >
+    <a class="header-logo-link" href="{{ '/' | relative_url }}" aria-label="KaaKazini home">
       <img
         src="{{ '/assets/images/kazika.jpg' | relative_url }}"
         alt="KaaKazini logo"
@@ -91,16 +62,12 @@
     </h1>
 
     {% if site.description %}
-      <p class="project-tagline">
-        {{ site.description | escape }}
-      </p>
+      <p class="project-tagline">{{ site.description | escape }}</p>
     {% endif %}
-
   </header>
 
-  <!-- Main page content -->
-  <main class="main-content">
-
+  <!-- Main content -->
+  <main id="main-content" class="main-content">
     {{ content }}
 
     <!-- Footer -->
@@ -108,12 +75,10 @@
       <p class="site-footer-owner">
         <strong>KaaKazini User Guide</strong>
       </p>
-
       <p class="site-footer-credits">
         Built to help users navigate KaaKazini.
       </p>
     </footer>
-
   </main>
 
 </body>
