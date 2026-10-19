@@ -1,77 +1,112 @@
-
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<html lang="{{ site.lang | default: 'en' }}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | default: 'KaaKazini User Guide' | escape }}</title>
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
 
-  <meta name="description" content="{{ page.description | default: site.description | default: 'KaaKazini user documentation.' | escape }}">
-  <meta name="theme-color" content="#fff000">
+  <meta name="description"
+        content="{{ page.description | default: site.description | escape }}">
 
-  <!-- Browser tab icon -->
-  <link rel="icon" type="image/jpeg" href="{{ '/assets/images/kazika.jpg' | relative_url }}">
-  <link rel="apple-touch-icon" href="{{ '/assets/images/kazika.jpg' | relative_url }}">
-
-  <!-- Raleway font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="stylesheet"
+        href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 
 <body>
-
   <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <a class="nav-brand" href="{{ '/' | relative_url }}" aria-label="KaaKazini User Guide home">
-      <img
-        src="{{ '/assets/images/kazika.jpg' | relative_url }}"
-        alt=""
-        class="nav-logo"
-        width="44"
-        height="44"
-      >
-      <span>KaaKazini</span>
-    </a>
+  <header class="site-header">
+    <div class="site-nav">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="KaaKazini User Guide home">
+        <img
+          class="brand-logo"
+          src="{{ '/assets/images/kazika.jpg' | relative_url }}"
+          alt="KaaKazini logo"
+          onerror="this.style.display='none';"
+        >
+        <span class="brand-name">KaaKazini</span>
+      </a>
 
-    <a class="nav-guide-link" href="{{ '/' | relative_url }}">
-      User Guide
-    </a>
-  </nav>
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="{{ '/' | relative_url }}">User Guide</a>
+        <a href="https://kaakazini.com" target="_blank" rel="noopener noreferrer">
+          Visit Website ↗
+        </a>
+      </nav>
+    </div>
 
-  <header class="page-header">
-    <a class="header-logo-link" href="{{ '/' | relative_url }}" aria-label="KaaKazini home">
-      <img
-        src="{{ '/assets/images/kazika.jpg' | relative_url }}"
-        alt="KaaKazini logo"
-        class="header-logo"
-        width="88"
-        height="88"
-      >
-    </a>
+    <div class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">OFFICIAL USER GUIDE</span>
+        <h1>{{ site.title | default: "KaaKazini User Guide" }}</h1>
+        <p>
+          {{ site.description | default: "Your guide to using KaaKazini." }}
+        </p>
 
-    <h1 class="project-name">
-      {{ site.title | default: 'KaaKazini User Guide' | escape }}
-    </h1>
+        <div class="hero-actions">
+          <a class="button button-dark" href="#main-content">
+            Explore the guide <span aria-hidden="true">↓</span>
+          </a>
+          <a class="button button-light"
+             href="https://kaakazini.com"
+             target="_blank"
+             rel="noopener noreferrer">
+            Visit KaaKazini ↗
+          </a>
+        </div>
+      </div>
 
-    {% if site.description %}
-      <p class="project-tagline">{{ site.description | escape }}</p>
-    {% endif %}
+      <div class="hero-decoration" aria-hidden="true">
+        <span class="decoration-circle"></span>
+        <span class="decoration-line"></span>
+        <span class="decoration-dot"></span>
+      </div>
+    </div>
   </header>
 
   <main id="main-content" class="main-content">
-    {{ content }}
+    <div class="content-label">
+      <span class="content-label-mark"></span>
+      <span>DOCUMENTATION</span>
+    </div>
 
-    <footer class="site-footer">
-      <p class="site-footer-owner">KaaKazini User Guide</p>
-      <p class="site-footer-credits">Built to help users navigate KaaKazini.</p>
-    </footer>
+    <article class="guide-content">
+      {{ content }}
+    </article>
+
+    <div class="help-panel">
+      <div>
+        <p class="help-kicker">NEED MORE HELP?</p>
+        <h2>We're here to help.</h2>
+        <p>Visit KaaKazini to explore the platform and its services.</p>
+      </div>
+      <a class="button button-dark"
+         href="https://kaakazini.com"
+         target="_blank"
+         rel="noopener noreferrer">
+        Visit KaaKazini ↗
+      </a>
+    </div>
   </main>
 
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <a class="footer-brand" href="{{ '/' | relative_url }}">KaaKazini</a>
+      <p>Connecting people with skilled service providers.</p>
+      <span>© {{ site.time | date: "%Y" }} KaaKazini</span>
+    </div>
+  </footer>
 </body>
 </html>
