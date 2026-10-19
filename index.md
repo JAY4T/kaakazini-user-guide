@@ -1,9 +1,12 @@
 ﻿---
----
 layout: default
 title: Home
 ---
----
+
+# KaaKazini User Guide
+
+## For Craftsmen and Service Providers
+
 # KaaKazini User Guide
 
 ##  For Craftsmen and Service Providers
