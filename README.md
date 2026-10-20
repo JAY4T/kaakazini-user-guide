@@ -194,7 +194,7 @@ Review the job details carefully before accepting it.
 
 The client's phone number remains hidden until you accept the job.
 
-![Newly assigned job](screenshots/accept2.JPG)
+![Newly assigned job](screenshots/acceptjob.JPG)
 
 *Figure 18: Newly assigned job with Accept Job and Decline buttons.*
 
@@ -214,7 +214,7 @@ Once you accept a job:
 
 Use this stage to clarify the client's requirements before finalising your price.
 
-![Accepted job](screenshots/acceptjob.JPG)
+![Accepted job](screenshots/accept2.JPG)
 
 *Figure 19: Accepted job with Prepare Quote, call, and Message buttons.*
 
